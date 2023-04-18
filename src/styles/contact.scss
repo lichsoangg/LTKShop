@@ -1,0 +1,35 @@
+.contact {
+  &__container {
+    display: grid;
+    place-items: center;
+    margin-top: 50px;
+  }
+  &__wrapper {
+    width: fit-content;
+    display: flex;
+    gap: 2rem;
+    a {
+      background: var(--primary-color);
+      font-size: 2rem;
+      border: 2px solid transparent;
+      transition: var(--transition);
+      padding: 0.8rem 1rem 0.5rem 0.9rem;
+      border-radius: 1.5rem;
+      &:hover {
+        background: transparent;
+        color: #ff5400;
+        border-color: var(--gray-100);
+      }
+    }
+  }
+  @media screen and (max-width: 1023.98px) {
+    margin-top: 5rem;
+    &__wrapper {
+      gap: 1.5rem;
+      a {
+        font-size: 1rem;
+        border-radius: 1rem;
+      }
+    }
+  }
+}

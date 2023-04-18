@@ -4,7 +4,7 @@ import Heading from "../common/Heading";
 import ProductItems from "./ProductItem";
 
 const Product = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(products ?? []);
   return (
     <>
       <section className="product">

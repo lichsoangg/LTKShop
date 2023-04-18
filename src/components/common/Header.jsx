@@ -1,23 +1,23 @@
-import React, {useRef, useState} from "react";
-import logo from "../../assets/images/logo.svg";
-import cartimg from "../../assets/images/cart.png";
-import {BiSearch} from "react-icons/bi";
-import {BsBagCheck} from "react-icons/bs";
-import {RiUser3Line} from "react-icons/ri";
+import React, {useRef, useState} from 'react';
+import logo from '../../assets/images/logo.svg';
+import cartimg from '../../assets/images/cart.png';
+import {BiSearch} from 'react-icons/bi';
+import {BsBagCheck} from 'react-icons/bs';
+import {RiUser3Line} from 'react-icons/ri';
 import {
   AiOutlineHeart,
   AiOutlineMenu,
   AiOutlineClose,
   AiOutlineDelete,
   AiOutlineMinusCircle,
-} from "react-icons/ai";
-import {navlist} from "../../assets/data/data";
-import {connect, useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
-import {useEffect} from "react";
-import lg from "../../assets/images/ltk.jpg";
-import {IoMdAddCircleOutline} from "react-icons/io";
-import {addCart, likeCart, removeCartItems, rmCart} from "../../redux/slice/cartSlice";
+} from 'react-icons/ai';
+import {navlist} from '../../assets/data/data';
+import {connect, useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {useEffect} from 'react';
+import lg from '../../assets/images/ltk.jpg';
+import {IoMdAddCircleOutline} from 'react-icons/io';
+import {addCart, likeCart, removeCartItems, rmCart} from '../../redux/slice/cartSlice';
 
 const Header = () => {
   // navbar
@@ -35,9 +35,9 @@ const Header = () => {
     dispatch(rmCart(e));
   };
   // scroll navbar
-  window.addEventListener("scroll", function () {
-    const header = this.document.querySelector(".header");
-    header.classList.toggle("active", this.window.scrollY > 100);
+  window.addEventListener('scroll', function () {
+    const header = this.document.querySelector('.header');
+    header.classList.toggle('active', this.window.scrollY > 100);
   });
 
   // cart add in shop
@@ -67,7 +67,7 @@ const Header = () => {
   let carRef = useRef();
   let likeRef = useRef();
   useEffect(() => {
-    document.addEventListener("mousedown", (event) => {
+    document.addEventListener('mousedown', (event) => {
       if (!carRef.current.contains(event.target)) {
         setCartList(false);
       }
@@ -99,7 +99,7 @@ const Header = () => {
               </Link>
             </div>
             <div className="center">
-              <ul className={mobile ? "mobile-nav" : "menu"}>
+              <ul className={mobile ? 'mobile-nav' : 'menu'}>
                 {navlist.map((nav, i) => (
                   <li key={i}>
                     <Link to={nav.path}>{nav.text}</Link>
@@ -116,14 +116,14 @@ const Header = () => {
             <div ref={likeRef} className="right_user ">
               <RiUser3Line className="userIcon heIcon" />
               <AiOutlineHeart className="userIcon heIcon" onClick={() => setCartLike(!cartLike)} />
-              <div className={cartLike ? "showCart" : "hideCart"}>
+              <div className={cartLike ? 'showCart' : 'hideCart'}>
                 {getlike?.length ? (
                   <section className="details">
                     <div className="details_title">
                       <h3>Photo</h3>
                       <p>Product Name</p>
                     </div>
-                    {getdata.map((e) => (
+                    {getlike.map((e) => (
                       <div className="details_content">
                         <div className="details_content_img">
                           <Link to={`/cart/${e.id}`} onClick={handleCloses}>
@@ -157,7 +157,7 @@ const Header = () => {
                 <BsBagCheck className="shop heIcon" />
                 Giỏ hàng<span> ({getdata?.length})</span>
               </button>
-              <div className={cartList ? "showCart" : "hideCart"}>
+              <div className={cartList ? 'showCart' : 'hideCart'}>
                 {getdata?.length ? (
                   <section className="details">
                     <div className="details_title">

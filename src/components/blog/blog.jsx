@@ -1,6 +1,6 @@
-import React from "react";
-import {blog} from "../../assets/data/data";
-import Heading from "../common/Heading";
+import React from 'react';
+import {blog} from '../../assets/data/data';
+import Heading from '../common/Heading';
 
 const Blog = () => {
   return (

@@ -1,11 +1,11 @@
-import React, {useState} from "react";
-import {topProducts} from "../../assets/data/data";
-import Heading from "../common/Heading";
-import ProductItems from "../product/ProductItem";
+import React, {useState} from 'react';
+import {topProducts} from '../../assets/data/data';
+import Heading from '../common/Heading';
+import ProductItems from '../product/ProductItem';
 
 const TopProduct = () => {
   const [cartItems, setCartItems] = useState(topProducts);
-  const allCategories = ["all", ...new Set(cartItems.map((item) => item.category))];
+  const allCategories = ['all', ...new Set(cartItems.map((item) => item.category))];
   const [category, setCategory] = useState(allCategories);
 
   /*console.log(setCartItems)
@@ -16,7 +16,7 @@ const TopProduct = () => {
     const newItem = topProducts.filter((item) => item.category === category);
     setCartItems(newItem);
 
-    if (category === "all") {
+    if (category === 'all') {
       setCartItems(topProducts);
       return;
     }
@@ -32,7 +32,7 @@ const TopProduct = () => {
             />
             <div className="category">
               {category.map((category) => (
-                <button className="button" onClick={() => handleFilter(category)}>
+                <button className="button" key={category} onClick={() => handleFilter(category)}>
                   {category}
                 </button>
               ))}
