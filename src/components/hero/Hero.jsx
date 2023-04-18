@@ -1,18 +1,18 @@
-import React, {useState} from "react";
-import {BiSearch} from "react-icons/bi";
-import {products} from "../../assets/data/data";
-import SearchItems from "./SearchItem";
+import React, {useState} from 'react';
+import {BiSearch} from 'react-icons/bi';
+import {products} from '../../assets/data/data';
+import SearchItems from './SearchItem';
 
 const Hero = () => {
   // search
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const onChanage = (e) => {
     setValue(e.target.value);
   };
 
   const onSearch = (key) => {
     setValue(key);
-    console.log("search", key);
+    console.log('search', key);
   };
   return (
     <>
