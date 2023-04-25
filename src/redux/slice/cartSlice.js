@@ -1,7 +1,7 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice} from '@reduxjs/toolkit';
 
 const slice = createSlice({
-  name: "product",
+  name: 'product',
   initialState: {
     carts: [],
     likes: [],
@@ -46,22 +46,10 @@ const slice = createSlice({
         };
       }
     },
+
     removeCartItems: (state, action) => {
-      const itemIndex_desc = state.carts.findIndex((item) => item.id === action.payload.id);
-      if (state.carts[itemIndex_desc]?.qty >= 1) {
-        const delete_item = (state.carts[itemIndex_desc].qty -= 1);
-        // console.log([...state.carts, delete_item]);
-        return {
-          ...state,
-          carts: [...state.carts],
-        };
-      } else if (state.carts[itemIndex_desc].qty === 1) {
-        const data = state.carts.filter((el) => el.id !== action.payload.id);
-        return {
-          ...state,
-          carts: data,
-        };
-      }
+      const removeItem = state.carts.filter((item) => item.id !== action.payload);
+      state.carts = removeItem;
     },
   },
 });
