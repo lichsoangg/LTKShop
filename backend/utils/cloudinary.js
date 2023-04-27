@@ -1,4 +1,5 @@
-const cloudinary = require("cloudinary");
+require('dotenv').config();
+const cloudinary = require('cloudinary');
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -16,7 +17,7 @@ const cloudinaryUploadImg = async (fileToUploads) => {
           public_id: result.public_id,
         },
         {
-          resource_type: "auto",
+          resource_type: 'auto',
         }
       );
     });
@@ -32,11 +33,11 @@ const cloudinaryDeleteImg = async (fileToDelete) => {
           public_id: result.public_id,
         },
         {
-          resource_type: "auto",
+          resource_type: 'auto',
         }
       );
     });
   });
 };
 
-module.exports = { cloudinaryUploadImg, cloudinaryDeleteImg };
+module.exports = {cloudinaryUploadImg, cloudinaryDeleteImg};
