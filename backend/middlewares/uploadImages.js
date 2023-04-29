@@ -2,7 +2,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
-const storage = multer.diskStorage({
+const multerStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, '../public/images'));
   },
@@ -13,6 +13,13 @@ const storage = multer.diskStorage({
 });
 
 const multerFilter = (req, file, cb) => {
+  // const allowFileType = ['image/jpeg', 'image/jpg', 'image/png'];
+  // if (allowFileType.includes(file.mimetype)) {
+  //   cb(null, true);
+  // } else {
+  //   cb(null, false);
+  // }
+
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
   } else {
@@ -21,10 +28,11 @@ const multerFilter = (req, file, cb) => {
 };
 
 const uploadPhoto = multer({
-  storage: storage,
+  storage: multerStorage,
   fileFilter: multerFilter,
   limits: {fileSize: 2000000},
 });
+
 
 const productImgResize = async (req, res, next) => {
   if (!req.files) return next();
